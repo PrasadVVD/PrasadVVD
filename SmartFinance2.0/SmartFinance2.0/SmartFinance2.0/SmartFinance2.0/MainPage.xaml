@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:common="clr-namespace:SmartFinance.Common"
+             x:Class="SmartFinance.MainPage">
+
+    <StackLayout VerticalOptions="CenterAndExpand" Margin="0,-50,0,0">
+        <Grid>
+            <Frame BackgroundColor="#2196F3" Padding="36" CornerRadius="15" Margin="20" VerticalOptions="Center" Grid.Row="0">
+                <StackLayout>
+                    <Label Text="Welcome to Smart Finance" HorizontalTextAlignment="Center" TextColor="White" FontSize="30"/>
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10">
+                        <Button x:Name="Login" TextColor="White" 
+                            Margin="0,10,0,10" FontSize="20" BorderRadius="33" BorderWidth="1" 
+                            BackgroundColor="Green" BorderColor="DimGray" 
+                            Command="{Binding LoginCommand}"
+                            Text="Login"/>
+                        <Button x:Name="Register" Text="Register" Margin="0,10,0,10" FontSize="20" 
+                            BorderRadius="33" BorderWidth="1" BorderColor="DimGray" Command="{Binding RegisterCommand}"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <ContentView Grid.Row="0" BackgroundColor="Transparent" IsVisible="{Binding IsBusy}" VerticalOptions="Center" >
+                <Frame CornerRadius="15" BackgroundColor="WhiteSmoke" Padding="0" HasShadow="False"
+                               IsClippedToBounds="True" HorizontalOptions="Center">
+                    <StackLayout HeightRequest="100" WidthRequest="250" Padding="20" HorizontalOptions="CenterAndExpand">
+                        <ActivityIndicator IsRunning="True" Color="#2196F3"/>
+                        <Label Text="Loading. Please wait!" HorizontalTextAlignment="Center" FontSize="Small"/>
+                    </StackLayout>
+                </Frame>
+            </ContentView>
+        </Grid>
+        <!--
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Frame CornerRadius="10" 
+                                       HasShadow="False"
+                                       Margin="16, 8, 16, 8"
+                                       Padding="0"
+                                       BorderColor="Gray"
+                                       BackgroundColor="White"
+                                       Visual="Material">
+                <Grid>
+                    <common:CustomCodeEntry FontSize="Small"
+                                            HorizontalOptions="FillAndExpand"
+                                            HorizontalTextAlignment="Start"    
+                                            Keyboard="Default"
+                                            Text="{Binding SurName}"       
+                                            TextColor="Black"                                               
+                                            PlaceholderColor="Transparent"                                               
+                                            HeightRequest="48" Margin="5,0,5,-5" >
+                    </common:CustomCodeEntry>
+                    <Label Text="Surname" 
+                           Margin="15,5" 
+                           InputTransparent="True"
+                           TextColor="Black"                                               
+                           FontSize="Micro">
+                    </Label>
+                </Grid>                
+                
+            </Frame>            
+        </StackLayout>-->
+    </StackLayout>
+
+</ContentPage>

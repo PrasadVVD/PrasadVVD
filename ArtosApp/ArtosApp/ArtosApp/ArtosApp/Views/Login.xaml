@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:converters="clr-namespace:ArtosApp.Converters" 
+             xmlns:common="clr-namespace:ArtosApp.Common"
+             x:Class="ArtosApp.Views.Login"
+             Title="Login">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:NotConverter x:Key="NotConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>    
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout HeightRequest="100"/>
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+                <Frame  CornerRadius="10" 
+                        HasShadow="False"
+                        Margin="16, 8, 16, 8"
+                        Padding="0"
+                        BorderColor="Gray"
+                        BackgroundColor="White">
+                    <Grid>
+                        <common:CustomCodeEntry FontSize="Small"
+                                        HorizontalOptions="FillAndExpand"
+                                        HorizontalTextAlignment="Start"    
+                                        Keyboard="Default"
+                                        Text="{Binding Username}"       
+                                        TextColor="Black"                                               
+                                        PlaceholderColor="Transparent"                                               
+                                        HeightRequest="48" Margin="5,0,5,-5" >
+                        </common:CustomCodeEntry>
+                        <Label Text="UserName" 
+                           Margin="15,5" 
+                           InputTransparent="True"
+                           TextColor="Black"                                               
+                           FontSize="Micro">
+                        </Label>
+                    </Grid>
+                </Frame>
+                <Frame  CornerRadius="10" 
+                        HasShadow="False"
+                        Margin="16, 8, 16, 8"
+                        Padding="0"
+                        BorderColor="Gray"
+                        BackgroundColor="White"
+                        Visual="Material">
+                    <Grid>
+                        <common:CustomCodeEntry FontSize="Small"
+                                                HorizontalOptions="FillAndExpand"
+                                                HorizontalTextAlignment="Start"    
+                                                Keyboard="Default"
+                                                Text="{Binding Password}"       
+                                                TextColor="Black"               
+                                                IsPassword="True"
+                                                PlaceholderColor="Transparent"                                               
+                                                HeightRequest="48" Margin="5,0,5,-5" >
+                        </common:CustomCodeEntry>
+                        <Label Text="Password" 
+                           Margin="15,5" 
+                           InputTransparent="True"
+                           TextColor="Black"                                               
+                           FontSize="Micro">
+                        </Label>
+                    </Grid>
+                </Frame>
+                <ActivityIndicator Color="Blue" IsRunning="True" IsVisible="{Binding IsBusy}"/>
+                <Button Text="Login" FontSize="20" Margin="20,10"
+                        BorderRadius="33" BorderWidth="1" BorderColor="DimGray" 
+                        Command="{Binding LoginCommand}" IsVisible="{Binding IsBusy, Converter={StaticResource NotConverter}}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

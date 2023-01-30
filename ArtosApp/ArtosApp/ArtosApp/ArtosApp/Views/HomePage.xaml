@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             x:Class="ArtosApp.Views.HomePage"
+             Title="Home">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
+            <StackLayout HorizontalOptions="Center">
+                <Label Text="{Binding HeadingText}" HorizontalTextAlignment="Center" FontSize="Large"/>
+            </StackLayout>
+            <StackLayout Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <flv:FlowListView FlowItemsSource="{Binding NavigationItems}" FlowColumnCount="2" SeparatorVisibility="None" HasUnevenRows="true" BackgroundColor="Transparent"
+                                  FlowColumnMinWidth="110" HorizontalOptions="CenterAndExpand">
+                    <flv:FlowListView.FlowColumnTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <StackLayout BackgroundColor="{Binding BackgroundColour}" Padding="10,30,10,30">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding NavigationCommand}" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="{Binding Icon}" HeightRequest="40" />
+                                    <Label Text="{Binding Label}" Style="{DynamicResource Title}" HorizontalOptions="CenterAndExpand" FontSize="Medium" HorizontalTextAlignment="Center" TextColor="White"/>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </flv:FlowListView.FlowColumnTemplate>
+                </flv:FlowListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

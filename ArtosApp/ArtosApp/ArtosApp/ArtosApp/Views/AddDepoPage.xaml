@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:common="clr-namespace:ArtosApp.Common"
+             x:Class="ArtosApp.Views.AddDepoPage"
+             Title="Add Depo">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                <StackLayout.Padding>
+                    <OnIdiom x:TypeArguments="Thickness" Phone="25,10,25,0" Tablet="75,20,75,0"></OnIdiom>
+                </StackLayout.Padding>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="20,40,20,0">
+                    <Label x:Name="lblHeading" Text="Add New Depo" FontSize="Medium" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+                    <Frame  CornerRadius="10" HasShadow="False" Margin="16, 8, 16, 8" Padding="0"
+                            BorderColor="Gray" BackgroundColor="White">
+                        <Grid>
+                            <common:CustomCodeEntry x:Name="txtDepoName" FontSize="Small" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"    
+                                                    Keyboard="Default" Text="{Binding DepoName}" TextColor="Black"
+                                                    PlaceholderColor="Transparent" HeightRequest="48" Margin="5,0,5,-5" >
+                            </common:CustomCodeEntry>
+                            <Label Text="Depo Name" Margin="15,5" InputTransparent="True" TextColor="Black" FontSize="Micro"/>
+                        </Grid>
+                    </Frame>                                        
+                    <Button x:Name="BtnSave" Text="Save" Command="{Binding SaveButton}" Margin="0,10,0,10" FontSize="20" CornerRadius="33" BorderWidth="1" BorderColor="DimGray" BackgroundColor="#0197FF" TextColor="White"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
